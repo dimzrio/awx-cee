@@ -1,0 +1,4 @@
+python38-devel [platform:rpm compile]
+subversion [platform:rpm]
+postgresql-devel [platform:rpm]
+git-lfs [platform:rpm]
