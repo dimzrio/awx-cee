@@ -9,3 +9,19 @@ ADD _build /build
 WORKDIR /build
 RUN ansible-galaxy role install -r requirements.yml --roles-path /usr/share/ansible/roles
 RUN ansible-galaxy collection install $ANSIBLE_GALAXY_CLI_COLLECTION_OPTS -r requirements.yml --collections-path /usr/share/ansible/collections
+
+FROM $PYTHON_BUILDER_IMAGE as builder
+ADD _build/requirements_combined.txt /tmp/src/requirements.txt
+ADD _build/bindep_combined.txt /tmp/src/bindep.txt
+RUN assemble
+
+FROM $ANSIBLE_RUNNER_IMAGE
+RUN whoami
+RUN cat /etc/os-release
+
+COPY --from=galaxy /usr/share/ansible /usr/share/ansible
+
+COPY --from=builder /output/ /output/
+RUN /output/install-from-bindep && rm -rf /output/wheels
+RUN echo This is a post-install command!
+RUN ls -la /etc

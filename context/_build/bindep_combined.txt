@@ -1,0 +1,9 @@
+python38-pytz [platform:centos-8 platform:rhel-8]  # from collection awx.awx
+python38-requests [platform:centos-8 platform:rhel-8]  # from collection awx.awx, redhatinsights.insights
+python38-pyyaml [platform:centos-8 platform:rhel-8]  # from collection awx.awx
+kubernetes-client [platform:fedora]  # from collection kubernetes.core
+python38-devel [platform:rpm compile]  # from collection user
+subversion [platform:rpm]  # from collection user
+postgresql-devel [platform:rpm]  # from collection user
+gcc [platform:rpm]  # from collection user
+git-lfs [platform:rpm]  # from collection user

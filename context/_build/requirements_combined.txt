@@ -1,0 +1,9 @@
+pytz  # from collection awx.awx
+python-dateutil>=2.7.0  # from collection awx.awx
+awxkit  # from collection awx.awx
+requests  # from collection google.cloud,redhatinsights.insights
+google-auth  # from collection google.cloud
+kubernetes>=12.0.0  # from collection kubernetes.core
+requests-oauthlib  # from collection kubernetes.core
+jsonpatch  # from collection kubernetes.core
+psycopg2==2.8.6  # from collection user
